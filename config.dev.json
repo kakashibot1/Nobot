@@ -43,10 +43,10 @@
   }, 
   "whiteListMode": {
     "enable": false,
-    "whiteListIds":[61574307310002],
+    "whiteListIds":[61571969827425],
     "notes": "if you enable this feature, only the ids in the whiteListIds section can use the bot"
   },
-  "nickNameBot": "۝ Mini-DEV⚽⚽",
+  "nickNameBot": "۝ 𝑶𝑪𝑻𝑨𝑪𝑶𝑫𝑬 𝑨𝑰",
   "prefix": ".",
   "database": {
     "type": "mongodb",
