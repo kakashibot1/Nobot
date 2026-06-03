@@ -22,7 +22,7 @@ module.exports = function createMqttReconnectHandler() {
         if (reconnectAttempts >= maxReconnectAttempts) {
           log.err("MQTT_RECONNECT", "Max reconnection attempts reached, restart required");
           reconnectAttempts = 0;
-          return false; // Signal to restart bot
+          return false;
         }
 
         reconnectAttempts++;
@@ -39,12 +39,11 @@ module.exports = function createMqttReconnectHandler() {
           await stopListening();
           await sleep(1000);
           
-          // Reconnect to MQTT
           const keyListen = Date.now();
           global.GoatBot.Listening = api.listenMqtt(createCallBackListen(keyListen));
           
           log.info("MQTT_RECONNECT", "Successfully reconnected to MQTT");
-          reconnectAttempts = 0; // Reset on success
+          reconnectAttempts = 0;
           return true;
         } catch (err) {
           log.err("MQTT_RECONNECT", `Reconnection failed: ${err.message}`);
@@ -52,7 +51,7 @@ module.exports = function createMqttReconnectHandler() {
         }
       }
 
-      return null; // Not a reconnectable error
+      return null;
     },
 
     resetAttempts: function() {
